@@ -1,0 +1,13 @@
+#this is only the start of a new program and i am quite new to this.
+
+gamestart= input("""
+hello and welcome ot the game. 
+if you would like to continue, press Y
+if you would like to exit, press N
+
+""")
+
+if gamestart = Y:
+  print("lets the game commence.")
+if gamestart = N:
+    exit()
