@@ -1,25 +1,24 @@
 #this is only the start of a new program and i am quite new to this.
 
 import random
-#This is to gain the stats for the cards
-#vvvvvv
+
 drool = random.randint(1,10)
 intelligence = random.randint(1,100)
 exercise = random.randint(1,5)
 friendliness = random.randint(1,10)
 
-#starting the game vvvvv
+
 gamestart= input("""
 hello and welcome to the game. 
 if you would like to continue, press Y
 if you would like to exit, press N
 
 """)
-#if the game wants to be started vvvv
+
 if gamestart = Y:
   print("let the game commence.")
 if gamestart = N:
     exit()
-importing the text file for the cards vvv
+
 dogs[]
 file = open("dogs.txt","r")
