@@ -20,5 +20,5 @@ if gamestart = Y:
 if gamestart = N:
     exit()
 
-dogs[]
-file = open("dogs.txt","r")
+with open('dogs.txt') as f:
+  for dogs in f:()
