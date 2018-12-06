@@ -1,4 +1,4 @@
-# scaling-octo-meme
+# Top_Trumps_Dog_Edition
 top trumps game
 
 This program should be able to hold a game between you (the player) and the computer (the opponent) in a game of Top Trumps.
