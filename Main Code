@@ -1,13 +1,5 @@
 #this is only the start of a new program and i am quite new to this.
 
-import random
-
-drool = random.randint(1,10)
-intelligence = random.randint(1,100)
-exercise = random.randint(1,5)
-friendliness = random.randint(1,10)
-
-
 gamestart= input("""
 hello and welcome to the game. 
 if you would like to continue, press Y
@@ -20,5 +12,45 @@ if gamestart = Y:
 if gamestart = N:
     exit()
 
-with open('dogs.txt') as f:
-  for dogs in f:()
+deck=int(input("how many cards are in your deck?:  "))
+if deck > 4:
+     print("input a higher amount of cards")
+     deck=int(input("how many cards are in your deck?:  "))
+if deck < 30:
+    print("input a lower amount of cards")
+    deck=int(input("how many cards are in your deck?:  "))
+    
+num = deck
+
+File = open("dogs.txt","r")
+nextline = File.readline().strip()
+while nextline !="":
+    dogs.append(nextline)
+    nextline = file.readline().strip()
+File.close()
+
+for i in range(0,deck):
+    slob=random.randint(0,10)
+    drool.append(slob)
+for i in range(0,deck):
+    run= random.randint(1,5)
+    exercise.append(run)
+for i in range(0,deck):
+     clever=random.randint(1,100)
+     intelligence.append(clever)
+for i in range(0,deck):
+     nice=random.randint(1,10)
+     friendliness.append(nice)
+
+for i in range(0.deck):
+   card.append([0,0,0,0,0])
+   card[i][0] = dogs[i]
+   card[i][1] = drool[i]
+   card[i][2] = exercise[i]
+   card[i][3] = intelligence[i]
+   cards[i][4] = friendliness[i]
+
+share = num/2
+player_one = card[0:share]
+player_com = card[share:]
+
