@@ -59,8 +59,8 @@ else:
 
 print("""
 -----------------------------------------
-your cards are""",placards,"""
-
+your cards are""",card,"""
+total""",placards,"""
 -----------------------------------------
 """)
 
