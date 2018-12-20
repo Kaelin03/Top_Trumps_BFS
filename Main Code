@@ -1,10 +1,11 @@
-#this is only the start of a new program and i am quite new to this.
 dogs =[]
 drool =[]
 exercise =[]
 intelligence =[]
 friendliness =[]
 card =[]
+playdeck =[]
+playcom =[]
 import random
 gamestart = input("""
 hello and welcome to the game. 
@@ -23,8 +24,6 @@ else:
     if deck > 30:
         print("input a lower amount of cards")
         deck=int(input("how many cards are in your deck?:  "))
-        
-    num = deck
 
     File = open("dogs.txt","r")
     nextline = File.readline().strip()
@@ -54,14 +53,50 @@ else:
        card[i][3] = intelligence[i]
        card[i][4] = friendliness[i]
 
-    placards = num/2 #gives amount of cards
-    comcards = num/2
-
+    share = deck//2
+  
+    playdeck = card[0:share]
+    playcom = card[share:]
 print("""
 -----------------------------------------
-your cards are""",card,"""
-total""",placards,"""
+your cards are""",playdeck,"""
+
+your total is: """,share,"""
 -----------------------------------------
 """)
 
+selection = input("""
+what input would you like?
+[1] drool
+[2] excercise
+[3] intelligence
+[4] friendliness
+""")
 
+if playdeck[1] < playcom[1]:
+  print("you win! Computer's catagory was", playcom[1])
+  share + 1
+if playdeck[1] > playcom[1]:
+    print("you lost! Computers's catagory was", playcom[1])
+    share - 1
+
+if playdeck[2] > playcom[2]:
+  print("you win! Computer's catagory was", playcom[2])
+  share + 1
+if playdeck[2] < playcom[2]:
+    print("you lost! Computers's catagory was", playcom[2])
+    share - 1
+
+if playdeck[3] > playcom[3]:
+  print("you win! Computer's catagory was", playcom[3])
+  share + 1
+if playdeck[3] < playcom[3]:
+    print("you lost! Computers's catagory was", playcom[3])
+    share - 1
+
+if playdeck[4] > playcom[4]:
+  print("you win! Computer's catagory was", playcom[4])
+  share + 1
+if playdeck[4] < playcom[4]:
+    print("you lost! Computers's catagory was", playcom[4])
+    share - 1
