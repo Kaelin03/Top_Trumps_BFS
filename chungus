@@ -1,0 +1,718 @@
+import random
+import time
+
+exercise=[]
+intelligence=[]
+friendliness=[]
+drool=[]
+dogs=[]
+cards=[]
+
+menu = "yes"
+game = "true"
+play1 = "yes"
+start = "yes"
+numchoice = "a"
+aaa = "yes"
+
+while aaa == "yes":
+    while menu == "yes":
+        print("-------------------")
+        print("Celebrity Dogs Game")
+        print("-------------------")
+        print("-----Main Menu-----")
+        print("-------------------")
+        print("-select an option:-")
+        print("--------Play-------")
+        print("--------Quit-------")
+        
+
+        start = input("")
+        print("-------------------")
+        if start == "quit":
+            menu = "no"
+            print("-thanks for playing-")
+            print("--------------------")
+
+        if start == "play":
+            menu = "no"
+            cardnum = int(input("please enter the number of cards: "))
+            print("--------------------")
+
+            if cardnum > 4:
+                if cardnum < 30:
+                    if (cardnum % 2)== 0:
+                        print("number accepted")
+                        print("--------------------")
+                        time.sleep(0.5)
+                        print("starting game")
+                        time.sleep(1.3)
+                        numchoice = "yes"
+                    else:
+                        print("Number is not equal")
+                        print("--------------------")
+                else:
+                    print("Number is bigger than 30")
+                    print("--------------------")
+            else:
+                print("Number is smaller than 4")
+                print("--------------------")
+
+    if numchoice == "yes":
+        File=open("dogs.txt","r")
+        nextline=File.readline().strip()
+
+        while nextline !="":
+            dogs.append(nextline)
+            nextline=File.readline().strip()
+        File.close()
+
+        for i in range(0,cardnum):
+            intel=random.randint(1,100)
+            intelligence.append(intel)
+
+        for i in range(0,cardnum):
+            ex=random.randint(1,5)
+            exercise.append(ex)
+        for i in range(0,cardnum):
+            fri=random.randint(1,10)
+            friendliness.append(fri)
+        for i in range(0,cardnum):
+            drl=random.randint(1,10)
+            drool.append(drl)
+
+        for i in range(0,cardnum):
+            cards.append([0,0,0,0,0])
+            cards[i][0]=dogs[i]
+            cards[i][1]=intelligence[i]
+            cards[i][2]=friendliness[i]
+            cards[i][3]=exercise[i]
+            cards[i][4]=drool[i]
+
+            share=cardnum//2
+            player=cards[0:share]
+            computer=cards[share:]
+
+        while game == "true":
+            while play1=="yes":
+                print("")
+                print("--------------------")
+                print("your card is:")
+                print(player[0])
+                print("--------------------")
+                print("Choose an attribute")
+                print("1 - intelligence")
+                print("2 - friendliness")
+                print("3 - exercise")
+                print("4 - drool")
+                print("--------------------")
+                plyrchoice=input("")
+                if plyrchoice == ("1"):
+                    if player[0][1]>computer[0][1]:
+                        print("")
+                        print("you have won")
+                        print("your opponents card was:")
+                        print(computer[0])
+                        player.append([computer[0]])
+                        del computer[0]
+                        if computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                        elif player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You lose")
+                        else:
+                            computer[1:]+[computer[0]]
+                            player.append([player[0]])
+                            del player[0]
+                            player[1:]+[player[0]]
+                            print("you have the computers card")
+                            time.sleep(3)
+                            play1 = "yes"
+
+                    elif player[0][1]==computer[0][1]:
+                        print("")
+                        print("you have won")
+                        print("your opponents card was:")
+                        print(computer[0])
+                        player.append([computer[0]])
+                        del computer[0]
+                        if computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                        elif player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You lose")
+                        else:
+                            computer[1:]+[computer[0]]
+                            player.append([player[0]])
+                            del player[0]
+                            player[1:]+[player[0]]
+                            print("you have the computers card")
+                            time.sleep(3)
+                            play1 = "yes"
+
+                    else:
+                        print("The opponent has won")
+                        print("the opponents card was:")
+                        print(computer[0])
+                        computer.append([player[0]])
+                        del player[0]
+                        if player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You Lose")
+                        elif computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                        else:
+                            player[1:]+[player[0]]
+                            computer.append([computer[0]])
+                            del computer[0]
+                            computer[1:]+[computer[0]]
+                            print("the opponent has your card.")
+                            time.sleep(3)
+                            play1 = "no"
+
+                if plyrchoice == ("2"):
+                    if player[0][2]>computer[0][2]:
+                        print("")
+                        print("you have won")
+                        print("your opponents card was:")
+                        print(computer[0])
+                        player.append([computer[0]])
+                        del computer[0]
+                        if computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                        elif player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You lose")
+                        else:
+                            computer[1:]+[computer[0]]
+                            player.append([player[0]])
+                            del player[0]
+                            player[1:]+[player[0]]
+                            print("you have the computers card")
+                            time.sleep(3)
+                            play1 = "yes"
+
+                    elif player[0][2]==computer[0][2]:
+                        print("")
+                        print("you have won")
+                        print("your opponents card was:")
+                        print(computer[0])
+                        player.append([computer[0]])
+                        del computer[0]
+                        if computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                        elif player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You lose")
+                        else:
+                            computer[1:]+[computer[0]]
+                            player.append([player[0]])
+                            del player[0]
+                            player[1:]+[player[0]]
+                            print("you have the computers card")
+                            time.sleep(3)
+                            play1 = "yes"
+
+                    else:
+                        print("The opponent has won")
+                        print("the opponents card was:")
+                        print(computer[0])
+                        computer.append([player[0]])
+                        del player[0]
+                        if player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You Lose")
+                        elif computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                        else:
+                            player[1:]+[player[0]]
+                            computer.append([computer[0]])
+                            del computer[0]
+                            computer[1:]+[computer[0]]
+                            print("the opponent has your card.")
+                            time.sleep(3)
+                            play1 = "no"
+
+                if plyrchoice == ("3"):
+                    if player[0][3]>computer[0][3]:
+                        print("")
+                        print("you have won")
+                        print("your opponents card was:")
+                        print(computer[0])
+                        player.append([computer[0]])
+                        del computer[0]
+                        if computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                        elif player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You lose")
+                        else:
+                            computer[1:]+[computer[0]]
+                            player.append([player[0]])
+                            del player[0]
+                            player[1:]+[player[0]]
+                            print("you have the computers card")
+                            time.sleep(3)
+                            play1 = "yes"
+
+                    elif player[0][3]==computer[0][3]:
+                        print("")
+                        print("you have won")
+                        print("your opponents card was:")
+                        print(computer[0])
+                        player.append([computer[0]])
+                        del computer[0]
+                        if computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                        elif player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You lose")
+                        else:
+                            computer[1:]+[computer[0]]
+                            player.append([player[0]])
+                            del player[0]
+                            player[1:]+[player[0]]
+                            print("you have the computers card")
+                            time.sleep(3)
+                            play1 = "yes"
+
+                    else:
+                        print("The opponent has won")
+                        print("the opponents card was:")
+                        print(computer[0])
+                        computer.append([player[0]])
+                        del player[0]
+                        if player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You Lose")
+                        elif computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                        else:
+                            player[1:]+[player[0]]
+                            computer.append([computer[0]])
+                            del computer[0]
+                            computer[1:]+[computer[0]]
+                            print("the opponent has your card.")
+                            time.sleep(3)
+                            play1 = "no"
+                        
+                if plyrchoice == ("4"):
+                    if player[0][4]<computer[0][4]:
+                        print("")
+                        print("you have won")
+                        print("your opponents card was:")
+                        print(computer[0])
+                        player.append([computer[0]])
+                        del computer[0]
+                        if computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                        elif player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You lose")
+                        else:
+                            computer[1:]+[computer[0]]
+                            player.append([player[0]])
+                            del player[0]
+                            player[1:]+[player[0]]
+                            print("you have the computers card")
+                            time.sleep(3)
+                            play1 = "yes"
+
+                    elif player[0][4]==computer[0][4]:
+                        print("")
+                        print("you have won")
+                        print("your opponents card was:")
+                        print(computer[0])
+                        player.append([computer[0]])
+                        del computer[0]
+                        if computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                        elif player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You lose")
+                        else:
+                            computer[1:]+[computer[0]]
+                            player.append([player[0]])
+                            del player[0]
+                            player[1:]+[player[0]]
+                            print("you have the computers card")
+                            time.sleep(3)
+                            play1 = "yes"
+                    
+                    else:
+                        print("The opponent has won")
+                        print("the opponents card was:")
+                        print(computer[0])
+                        computer.append([player[0]])
+                        del player[0]
+                        if player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You Lose")
+                        elif computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                        else:
+                            player[1:]+[player[0]]
+                            computer.append([computer[0]])
+                            del computer[0]
+                            computer[1:]+[computer[0]]
+                            print("the opponent has your card.")
+                            time.sleep(3)
+                            play1 = "no"
+                              
+            while play1 == "no":
+              print("--------------------")
+              print("your card is:")
+              print(player[0])
+              print("--------------------")
+              print("opponent is choosing")
+              time.sleep(0.5)
+              print(".")
+              time.sleep(0.5)
+              print(".")
+              time.sleep(0.5)
+              print(".")
+              time.sleep(1)
+              compchoice=random.randint(1,1)
+              if compchoice == (1):
+                  if computer[0][1]>player[0][1]:
+                      print("")
+                      print("the opponent has chosen Intelligence")
+                      print("The opponent has won")
+                      print("your opponents card was:")
+                      time.sleep(1)
+                      print(computer[0])
+                      computer.append([player[0]])
+                      del player[0]
+                      if player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You Lose")
+                      else:
+                          player[1:]+[player[0]]
+                          computer.append([computer[0]])
+                          del computer[0]
+                          computer[1:]+[computer[0]]
+                          print("the opponent has your card.")
+                          play1 = "no"
+
+                  elif computer[0][1]==player[0][1]:
+                      print("")
+                      print("the opponent has chosen Intelligence")
+                      print("The opponent has won")
+                      print("your opponents card was:")
+                      time.sleep(1)
+                      print(computer[0])
+                      computer.append([player[0]])
+                      del player[0]
+                      if player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You Lose")
+                      elif computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                      else:
+                          player[1:]+[player[0]]
+                          computer.append([computer[0]])
+                          del computer[0]
+                          computer[1:]+[computer[0]]
+                          print("the opponent has your card.")
+                          play1 = "no"
+                  
+                  else:
+                      print("the opponent has chosen intelligence")
+                      print("you have won")
+                      print("the opponents card was:")
+                      time.sleep(1)
+                      print(computer[0])
+                      player.append([computer[0]])
+                      del computer[0]
+                      if computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                      elif player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You Lose")
+                      else:
+                          computer[1:]+[computer[0]]
+                          player.append([player[0]])
+                          del player[0]
+                          player[1:]+[player[0]]
+                          print("you have the computers card")
+                          time.sleep(3)
+                          play1 = "yes"
+
+              if compchoice == (2):
+                  if computer[0][2]>player[0][2]:
+                      print("")
+                      print("the opponent has chosen Friendliness")
+                      print("The opponent has won")
+                      print("your opponents card was:")
+                      time.sleep(1)
+                      print(computer[0])
+                      computer.append([player[0]])
+                      del player[0]
+                      if player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You Lose")
+                      elif computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                      else:
+                          player[1:]+[player[0]]
+                          computer.append([computer[0]])
+                          del computer[0]
+                          computer[1:]+[computer[0]]
+                          print("the opponent has your card.")
+                          play1 = "no"
+
+                  elif computer[0][2]==player[0][2]:
+                      print("")
+                      print("the opponent has chosen Friendliness")
+                      print("The opponent has won")
+                      print("your opponents card was:")
+                      time.sleep(1)
+                      print(computer[0])
+                      computer.append([player[0]])
+                      del player[0]
+                      if player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You Lose")
+                      elif computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                      else:
+                          player[1:]+[player[0]]
+                          computer.append([computer[0]])
+                          del computer[0]
+                          computer[1:]+[computer[0]]
+                          print("the opponent has your card.")
+                          play1 = "no"
+                  else:
+                      print("the opponent has chosen Friendliness")
+                      print("you have won")
+                      print("the opponents card was:")
+                      time.sleep(1)
+                      print(computer[0])
+                      player.append([computer[0]])
+                      del computer[0]
+                      if computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                      elif player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You Lose")
+                      else:
+                          computer[1:]+[computer[0]]
+                          player.append([player[0]])
+                          del player[0]
+                          player[1:]+[player[0]]
+                          print("you have the computers card")
+                          time.sleep(3)
+                          play1 = "yes"
+
+              if compchoice == (3):
+                  if computer[0][3]>player[0][3]:
+                      print("")
+                      print("the opponent has chosen Exercise")
+                      print("The opponent has won")
+                      print("your opponents card was:")
+                      time.sleep(1)
+                      print(computer[0])
+                      computer.append([player[0]])
+                      del player[0]
+                      if player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You Lose")
+                      elif computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                      else:
+                          player[1:]+[player[0]]
+                          computer.append([computer[0]])
+                          del computer[0]
+                          computer[1:]+[computer[0]]
+                          print("the opponent has your card.")
+                          play1 = "no"
+              
+
+                  elif computer[0][3]==player[0][3]:
+                      print("")
+                      print("the opponent has chosen Exercise")
+                      print("The opponent has won")
+                      print("your opponents card was:")
+                      time.sleep(1)
+                      print(computer[0])
+                      computer.append([player[0]])
+                      del player[0]
+                      if player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You Lose")
+                      elif computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                      else:
+                          player[1:]+[player[0]]
+                          computer.append([computer[0]])
+                          del computer[0]
+                          computer[1:]+[computer[0]]
+                          print("the opponent has your card.")
+                          play1 = "no"     
+                  
+                  else:
+                      print("the opponent has chosen Exercise")
+                      print("you have won")
+                      print("the opponents card was:")
+                      time.sleep(1)
+                      print(computer[0])
+                      player.append([computer[0]])
+                      del computer[0]
+                      if computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                      elif player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You Lose")
+                      else:
+                          computer[1:]+[computer[0]]
+                          player.append([player[0]])
+                          del player[0]
+                          player[1:]+[player[0]]
+                          print("you have the computers card")
+                          time.sleep(3)
+                          play1 = "yes"
+
+
+              if compchoice == (4):
+                  if computer[0][4]<player[0][4]:
+                          print("")
+                          print("the opponent has chosen Drool")
+                          print("The opponent has won")
+                          print("your opponents card was:")
+                          time.sleep(1)
+                          print(computer[0])
+                          computer.append([player[0]])
+                          del player[0]
+                          if player==[]:
+                              play1="nothing"
+                              print("")
+                              print("Game over, You Lose")
+                          elif computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                          else:
+                              player[1:]+[player[0]]
+                              computer.append([computer[0]])
+                              del computer[0]
+                              computer[1:]+[computer[0]]
+                              print("the opponent has your card.")
+                              play1 = "no"
+                            
+                  elif computer[0][4]==player[0][4]:
+                      print("")
+                      print("the opponent has chosen Drool")
+                      print("The opponent has won")
+                      print("your opponents card was:")
+                      time.sleep(1)
+                      print(computer[0])
+                      computer.append([player[0]])
+                      del player[0]
+                      if player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You Lose")
+                      elif computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                      else:
+                          player[1:]+[player[0]]
+                          computer.append([computer[0]])
+                          del computer[0]
+                          computer[1:]+[computer[0]]
+                          print("the opponent has your card.")
+                          play1 = "no"    
+                  
+                  else:
+                      print("the opponent has chosen Drool")
+                      print("you have won")
+                      print("the opponents card was:")
+                      time.sleep(1)
+                      print(computer[0])
+                      player.append([computer[0]])
+                      del computer[0]
+                      if computer==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You win")
+                      elif player==[]:
+                            play1="nothing"
+                            print("")
+                            print("Game over, You Lose")
+                      else:
+                          computer[1:]+[computer[0]]
+                          player.append([player[0]])
+                          del player[0]
+                          player[1:]+[player[0]]
+                          print("you have the computers card")
+                          time.sleep(3)
+                          play1 = "yes"
+                      
+                            
+                        
+
+                 
+
+
